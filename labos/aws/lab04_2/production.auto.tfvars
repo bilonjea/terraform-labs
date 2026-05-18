@@ -1,0 +1,1 @@
+ma_variable = "ma valeur fournie par le fichier de type *.auto.tfvars"
