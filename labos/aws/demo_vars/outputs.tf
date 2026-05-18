@@ -1,8 +1,4 @@
-output "ip_public_web" {
-  value = aws_instance.web.public_ip
-}
-
-output "dns_punblic_web" {
+output "dns_public_web" {
   value = aws_instance.web.public_dns
 }
 
@@ -24,4 +20,29 @@ output "all_web_info" {
 
 output "show_ma_variable" {
   value = var.ma_variable
+}
+
+output "ip_public_web" {
+  value = aws_instance.web.public_ip
+}
+
+output "ip_public_web_2" {
+  value = aws_instance.web_2.public_ip
+}
+
+output "ip_public_web_3" {
+  value = aws_instance.web_3.public_ip
+}
+
+output "ip_public_web_4" {
+  value = aws_instance.web_4.public_ip
+}
+
+output "all_instance_ids" {
+  value = [
+    aws_instance.web.id,
+    aws_instance.web_2.id,
+    aws_instance.web_3.id,
+    aws_instance.web_4.id
+  ]
 }

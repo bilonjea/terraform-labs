@@ -44,7 +44,7 @@ resource "aws_route_table_association" "formation" {
 resource "aws_subnet" "formation" {
   vpc_id                  = aws_vpc.formation.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-east-1a"
+  availability_zone       = var.availability_zone[0]
   map_public_ip_on_launch = true
   tags = { Name = "subnet-formation-TFV" }
 }
@@ -95,20 +95,53 @@ resource "aws_key_pair" "formation" {
 }
 
 resource "aws_instance" "web" {
-  ami                    = "ami-05cf1e9f73fbad2e2"
-  instance_type          = "t3.micro"
+  ami                    =  var.ami_id
+  instance_type          = var.type_instance_ec2
 
   subnet_id              = aws_subnet.formation.id
   vpc_security_group_ids = [aws_security_group.formation.id]
-
-
   key_name               = aws_key_pair.formation.key_name
-  
-  
+
+  availability_zone       = var.availability_zone[0]
+
+  tags = var.tags_formation_tfv
+}
+
+
+# Create an Elastic IP and associate it with the EC2 instance t
+#to ensure that the instance has a static public IP address that can be used to access it from the Internet
+resource "aws_eip" "web" {
+  instance = aws_instance.web.id  
+  domain = "vpc"
+}
+
+
+
+
+
+
+resource "aws_instance" "web_2" {
+  ami                    =  data.aws_ami.ubuntu_26.id
+  instance_type          = var.type_instance_ec2
   tags = {
-    Name          = "Ubuntu Server 24.04 LTS"
-    Environnement = "formation"
-    Cours         = "TFV"
+    Name          = "Ubuntu Server 26.04 LTS"
+  }
+}
+
+resource "aws_instance" "web_3" {
+  ami                    =  local.web_ami
+  instance_type          = var.type_instance_ec2
+  tags = {
+    Name          = "Ubuntu Server"
+  }
+}
+
+
+resource "aws_instance" "web_4" {
+  ami                    =  local.web_ami
+  instance_type          = var.type_instance_ec2
+  tags = {
+    Name          = "Ubuntu Server"
   }
 }
 
