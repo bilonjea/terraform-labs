@@ -89,7 +89,7 @@ resource "aws_security_group" "formation" {
 
 resource "aws_instance" "web" {
   ami                    = "ami-05cf1e9f73fbad2e2"
-  instance_type          = "t3.micro"
+  instance_type          = var.instance_type_default
 
   subnet_id              = aws_subnet.formation.id
   vpc_security_group_ids = [aws_security_group.formation.id]

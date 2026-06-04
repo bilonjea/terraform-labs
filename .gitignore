@@ -1,1 +1,5 @@
 ORSYS_Convocation _ 18_05_26.pdf
+**.terraform
+**terraform.lock.hcl
+**terraform.tfstate
+**terraform.tfstate.backup
