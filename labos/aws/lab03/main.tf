@@ -123,3 +123,9 @@ output "all_web_info" {
     security_groups = aws_instance.web.vpc_security_group_ids
   }
 }
+
+
+output "to" {
+  value = aws_instance.web
+}
+

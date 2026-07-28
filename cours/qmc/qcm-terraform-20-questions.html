@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCM Terraform - 20 questions</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:24px; color:#1f2937; }
+    .container { max-width: 1000px; margin: auto; background:white; padding:32px; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+    h1 { color:#0f766e; margin-bottom:8px; }
+    h2 { margin-top:32px; color:#111827; }
+    p { line-height:1.5; }
+    .question { margin:22px 0; padding:20px; background:#f9fafb; border-radius:12px; border:1px solid #e5e7eb; }
+    .question h3 { margin-top:0; font-size:18px; }
+    label { display:block; margin:10px 0; padding:10px 12px; border-radius:8px; cursor:pointer; }
+    label:hover { background:#eef6f6; }
+    button { background:#0f766e; color:white; border:none; padding:14px 20px; border-radius:10px; font-size:16px; cursor:pointer; }
+    button:hover { background:#115e59; }
+    .result { margin-top:28px; padding:18px; border-radius:12px; background:#ecfeff; border:1px solid #a5f3fc; display:none; }
+    .correction { margin-top:20px; display:none; }
+    .good { color:#166534; font-weight:bold; }
+    .bad { color:#b91c1c; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QCM Terraform</h1>
+    <p><strong>Version complète :</strong> 20 questions sur l’Infrastructure as Code, Terraform, première ressource, outputs et variables.</p>
+    <p>Répondez aux questions puis cliquez sur <strong>Corriger</strong>.</p>
+
+    <form id="quizForm">
+      <div class="question"><h3>1. Que signifie IaC ?</h3>
+        <label><input type="radio" name="q1" value="a"> Infrastructure as Code</label>
+        <label><input type="radio" name="q1" value="b"> Internet as Cloud</label>
+        <label><input type="radio" name="q1" value="c"> Instance as Configuration</label>
+      </div>
+      <div class="question"><h3>2. L’IaC permet principalement de :</h3>
+        <label><input type="radio" name="q2" value="a"> Gérer l’infrastructure avec du code</label>
+        <label><input type="radio" name="q2" value="b"> Remplacer les sauvegardes</label>
+        <label><input type="radio" name="q2" value="c"> Installer Windows</label>
+      </div>
+      <div class="question"><h3>3. Quel défi de l’IaC est cité dans le support ?</h3>
+        <label><input type="radio" name="q3" value="a"> Impossible de suivre les modifications</label>
+        <label><input type="radio" name="q3" value="b"> Trop de mémoire RAM sur les serveurs</label>
+        <label><input type="radio" name="q3" value="c"> Les réseaux ne sont plus utilisés</label>
+      </div>
+      <div class="question"><h3>4. Terraform a été créé pour :</h3>
+        <label><input type="radio" name="q4" value="a"> Résoudre les défis de l’IaC</label>
+        <label><input type="radio" name="q4" value="b"> Gérer seulement Docker</label>
+        <label><input type="radio" name="q4" value="c"> Remplacer tous les clouds</label>
+      </div>
+      <div class="question"><h3>5. Terraform est développé par :</h3>
+        <label><input type="radio" name="q5" value="a"> Red Hat</label>
+        <label><input type="radio" name="q5" value="b"> HashiCorp</label>
+        <label><input type="radio" name="q5" value="c"> Oracle</label>
+      </div>
+      <div class="question"><h3>6. Quel langage de configuration utilise Terraform ?</h3>
+        <label><input type="radio" name="q6" value="a"> HCL</label>
+        <label><input type="radio" name="q6" value="b"> C#</label>
+        <label><input type="radio" name="q6" value="c"> PHP</label>
+      </div>
+      <div class="question"><h3>7. Un provider sert à :</h3>
+        <label><input type="radio" name="q7" value="a"> Interagir avec l’API d’un fournisseur</label>
+        <label><input type="radio" name="q7" value="b"> Afficher les slides du cours</label>
+        <label><input type="radio" name="q7" value="c"> Supprimer automatiquement le code</label>
+      </div>
+      <div class="question"><h3>8. Une resource représente :</h3>
+        <label><input type="radio" name="q8" value="a"> Un objet d’infrastructure</label>
+        <label><input type="radio" name="q8" value="b"> Un mot-clé Linux</label>
+        <label><input type="radio" name="q8" value="c"> Un fichier PDF</label>
+      </div>
+      <div class="question"><h3>9. Un module Terraform est :</h3>
+        <label><input type="radio" name="q9" value="a"> Un dossier réutilisable contenant des configurations Terraform</label>
+        <label><input type="radio" name="q9" value="b"> Une machine virtuelle temporaire</label>
+        <label><input type="radio" name="q9" value="c"> Une commande de destruction</label>
+      </div>
+      <div class="question"><h3>10. La commande terraform init permet de :</h3>
+        <label><input type="radio" name="q10" value="a"> Initialiser le répertoire de travail</label>
+        <label><input type="radio" name="q10" value="b"> Détruire les ressources</label>
+        <label><input type="radio" name="q10" value="c"> Afficher les outputs</label>
+      </div>
+      <div class="question"><h3>11. La commande terraform plan sert à :</h3>
+        <label><input type="radio" name="q11" value="a"> Voir les changements avant application</label>
+        <label><input type="radio" name="q11" value="b"> Installer Ansible</label>
+        <label><input type="radio" name="q11" value="c"> Créer un fichier ZIP</label>
+      </div>
+      <div class="question"><h3>12. La commande terraform apply permet de :</h3>
+        <label><input type="radio" name="q12" value="a"> Appliquer les changements à l’infrastructure</label>
+        <label><input type="radio" name="q12" value="b"> Lire un fichier texte</label>
+        <label><input type="radio" name="q12" value="c"> Formater un disque</label>
+      </div>
+      <div class="question"><h3>13. Dans le support, Terraform et Ansible sont présentés comme :</h3>
+        <label><input type="radio" name="q13" value="a"> Deux outils complémentaires</label>
+        <label><input type="radio" name="q13" value="b"> Deux outils identiques</label>
+        <label><input type="radio" name="q13" value="c"> Deux hyperviseurs</label>
+      </div>
+      <div class="question"><h3>14. Un output sert notamment à :</h3>
+        <label><input type="radio" name="q14" value="a"> Exposer des informations après un terraform apply</label>
+        <label><input type="radio" name="q14" value="b"> Compresser les variables</label>
+        <label><input type="radio" name="q14" value="c"> Chiffrer le disque système</label>
+      </div>
+      <div class="question"><h3>15. Dans un bloc output, l’argument value sert à :</h3>
+        <label><input type="radio" name="q15" value="a"> Retourner le résultat d’une expression</label>
+        <label><input type="radio" name="q15" value="b"> Lancer terraform init</label>
+        <label><input type="radio" name="q15" value="c"> Déclarer un provider</label>
+      </div>
+      <div class="question"><h3>16. Les variables d’entrée permettent de :</h3>
+        <label><input type="radio" name="q16" value="a"> Personnaliser l’infrastructure</label>
+        <label><input type="radio" name="q16" value="b"> Supprimer automatiquement les ressources</label>
+        <label><input type="radio" name="q16" value="c"> Créer des PDF</label>
+      </div>
+      <div class="question"><h3>17. Quel argument d’une variable permet de définir une valeur par défaut ?</h3>
+        <label><input type="radio" name="q17" value="a"> default</label>
+        <label><input type="radio" name="q17" value="b"> destroy</label>
+        <label><input type="radio" name="q17" value="c"> source</label>
+      </div>
+      <div class="question"><h3>18. Quel argument d’une variable permet d’imposer un type ?</h3>
+        <label><input type="radio" name="q18" value="a"> type</label>
+        <label><input type="radio" name="q18" value="b"> plan</label>
+        <label><input type="radio" name="q18" value="c"> apply</label>
+      </div>
+      <div class="question"><h3>19. Les local values servent surtout à :</h3>
+        <label><input type="radio" name="q19" value="a"> Simplifier la configuration et éviter les répétitions</label>
+        <label><input type="radio" name="q19" value="b"> Installer un provider</label>
+        <label><input type="radio" name="q19" value="c"> Exporter une machine virtuelle</label>
+      </div>
+      <div class="question"><h3>20. Parmi ces types simples Terraform, lequel est correct ?</h3>
+        <label><input type="radio" name="q20" value="a"> string</label>
+        <label><input type="radio" name="q20" value="b"> server</label>
+        <label><input type="radio" name="q20" value="c"> networkfile</label>
+      </div>
+      <button type="button" onclick="corrigerQuiz()">Corriger</button>
+    </form>
+
+    <div class="result" id="result"></div>
+    <div class="correction" id="correction"></div>
+  </div>
+
+  <script>
+    function corrigerQuiz() {
+      const bonnesReponses = {
+        q1:'a', q2:'a', q3:'a', q4:'a', q5:'b', q6:'a', q7:'a', q8:'a', q9:'a', q10:'a',
+        q11:'a', q12:'a', q13:'a', q14:'a', q15:'a', q16:'a', q17:'a', q18:'a', q19:'a', q20:'a'
+      };
+
+      const explications = {
+        q1:"IaC signifie Infrastructure as Code.",
+        q2:"L’IaC sert à gérer et automatiser l’infrastructure à l’aide du code.",
+        q3:"Le support cite notamment l’impossibilité de suivre les modifications comme défi de l’IaC.",
+        q4:"Terraform a été créé pour répondre aux défis de l’Infrastructure as Code.",
+        q5:"Terraform est un outil open source développé par HashiCorp.",
+        q6:"Terraform utilise HCL, le langage de configuration HashiCorp.",
+        q7:"Le provider permet à Terraform de dialoguer avec l’API d’un fournisseur cloud ou autre système.",
+        q8:"Une resource représente un objet d’infrastructure, comme une instance ou un réseau.",
+        q9:"Un module est un ensemble réutilisable de configurations Terraform dans un dossier.",
+        q10:"terraform init initialise le répertoire de travail Terraform.",
+        q11:"terraform plan affiche les changements prévus avant l’exécution.",
+        q12:"terraform apply applique réellement les changements sur l’infrastructure.",
+        q13:"Le support montre que Terraform crée l’infrastructure et qu’Ansible peut ensuite configurer les applications.",
+        q14:"Les outputs servent à exposer des informations utiles après le déploiement.",
+        q15:"Dans un bloc output, value contient l’expression qui sera renvoyée à l’utilisateur ou à une autre configuration.",
+        q16:"Les variables permettent de personnaliser le déploiement Terraform.",
+        q17:"L’argument default rend une variable facultative en lui donnant une valeur par défaut.",
+        q18:"L’argument type permet de définir le type attendu pour une variable.",
+        q19:"Les local values servent à simplifier le code et limiter les répétitions.",
+        q20:"string fait partie des types simples Terraform, avec number et bool."
+      };
+
+      let score = 0;
+      let correctionHTML = '<h2>Correction</h2>';
+
+      for (let q in bonnesReponses) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === bonnesReponses[q]) {
+          score++;
+          correctionHTML += `<p class="good">${q.toUpperCase()} : Correct. ${explications[q]}</p>`;
+        } else {
+          correctionHTML += `<p class="bad">${q.toUpperCase()} : Incorrect. ${explications[q]}</p>`;
+        }
+      }
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<h2>Résultat</h2><p>Score : <strong>${score}/20</strong></p>`;
+
+      const correctionDiv = document.getElementById('correction');
+      correctionDiv.style.display = 'block';
+      correctionDiv.innerHTML = correctionHTML;
+    }
+  </script>
+</body>
+</html>

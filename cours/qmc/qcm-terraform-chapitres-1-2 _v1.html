@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCM Terraform - Chapitres 1 et 2</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:24px; color:#1f2937; }
+    .container { max-width: 900px; margin: auto; background:white; padding:32px; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+    h1 { color:#0f766e; margin-bottom:8px; }
+    h2 { margin-top:32px; color:#111827; }
+    p { line-height:1.5; }
+    .question { margin:24px 0; padding:20px; background:#f9fafb; border-radius:12px; border:1px solid #e5e7eb; }
+    .question h3 { margin-top:0; font-size:18px; }
+    label { display:block; margin:10px 0; padding:10px 12px; border-radius:8px; cursor:pointer; }
+    label:hover { background:#eef6f6; }
+    button { background:#0f766e; color:white; border:none; padding:14px 20px; border-radius:10px; font-size:16px; cursor:pointer; }
+    button:hover { background:#115e59; }
+    .result { margin-top:28px; padding:18px; border-radius:12px; background:#ecfeff; border:1px solid #a5f3fc; display:none; }
+    .correction { margin-top:20px; display:none; }
+    .good { color:#166534; font-weight:bold; }
+    .bad { color:#b91c1c; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QCM Terraform</h1>
+    <p><strong>Thème :</strong> Chapitre 1 : Infrastructure as Code, Chapitre 2 : Terraform</p>
+    <p>Répondez aux 10 questions puis cliquez sur <strong>Corriger</strong>.</p>
+
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. Que signifie IaC ?</h3>
+        <label><input type="radio" name="q1" value="a"> Infrastructure as Code</label>
+        <label><input type="radio" name="q1" value="b"> Internet as Cloud</label>
+        <label><input type="radio" name="q1" value="c"> Instance as Configuration</label>
+      </div>
+
+      <div class="question">
+        <h3>2. Quel est l’objectif principal de l’Infrastructure as Code ?</h3>
+        <label><input type="radio" name="q2" value="a"> Gérer l’infrastructure manuellement</label>
+        <label><input type="radio" name="q2" value="b"> Automatiser la gestion de l’infrastructure par le code</label>
+        <label><input type="radio" name="q2" value="c"> Remplacer tous les administrateurs système</label>
+      </div>
+
+      <div class="question">
+        <h3>3. Lequel de ces outils est cité comme outil de configuration management ?</h3>
+        <label><input type="radio" name="q3" value="a"> Ansible</label>
+        <label><input type="radio" name="q3" value="b"> Photoshop</label>
+        <label><input type="radio" name="q3" value="c"> Excel</label>
+      </div>
+
+      <div class="question">
+        <h3>4. Terraform a été développé par :</h3>
+        <label><input type="radio" name="q4" value="a"> Google</label>
+        <label><input type="radio" name="q4" value="b"> Microsoft</label>
+        <label><input type="radio" name="q4" value="c"> HashiCorp</label>
+      </div>
+
+      <div class="question">
+        <h3>5. Quel langage de configuration utilise principalement Terraform ?</h3>
+        <label><input type="radio" name="q5" value="a"> HCL</label>
+        <label><input type="radio" name="q5" value="b"> Java</label>
+        <label><input type="radio" name="q5" value="c"> PHP</label>
+      </div>
+
+      <div class="question">
+        <h3>6. Dans Terraform, un provider sert à :</h3>
+        <label><input type="radio" name="q6" value="a"> Interagir avec l’API d’un fournisseur</label>
+        <label><input type="radio" name="q6" value="b"> Créer uniquement des variables</label>
+        <label><input type="radio" name="q6" value="c"> Afficher les sorties à l’écran</label>
+      </div>
+
+      <div class="question">
+        <h3>7. Quelle commande initialise un projet Terraform ?</h3>
+        <label><input type="radio" name="q7" value="a"> terraform apply</label>
+        <label><input type="radio" name="q7" value="b"> terraform init</label>
+        <label><input type="radio" name="q7" value="c"> terraform destroy</label>
+      </div>
+
+      <div class="question">
+        <h3>8. Quelle commande permet de voir les changements avant application ?</h3>
+        <label><input type="radio" name="q8" value="a"> terraform plan</label>
+        <label><input type="radio" name="q8" value="b"> terraform output</label>
+        <label><input type="radio" name="q8" value="c"> terraform fmt</label>
+      </div>
+
+      <div class="question">
+        <h3>9. Dans une utilisation complémentaire, Terraform et Ansible signifient que :</h3>
+        <label><input type="radio" name="q9" value="a"> Terraform configure les applications et Ansible crée les VM</label>
+        <label><input type="radio" name="q9" value="b"> Terraform crée l’infrastructure et Ansible configure les machines</label>
+        <label><input type="radio" name="q9" value="c"> Les deux font exactement la même chose</label>
+      </div>
+
+      <div class="question">
+        <h3>10. Quelle commande supprime les ressources créées par Terraform ?</h3>
+        <label><input type="radio" name="q10" value="a"> terraform state</label>
+        <label><input type="radio" name="q10" value="b"> terraform destroy</label>
+        <label><input type="radio" name="q10" value="c"> terraform validate</label>
+      </div>
+
+      <button type="button" onclick="corrigerQuiz()">Corriger</button>
+    </form>
+
+    <div class="result" id="result"></div>
+    <div class="correction" id="correction"></div>
+  </div>
+
+  <script>
+    function corrigerQuiz() {
+      const bonnesReponses = {
+        q1: 'a', q2: 'b', q3: 'a', q4: 'c', q5: 'a',
+        q6: 'a', q7: 'b', q8: 'a', q9: 'b', q10: 'b'
+      };
+
+      const explications = {
+        q1: "IaC signifie Infrastructure as Code.",
+        q2: "L’objectif est d’automatiser la gestion de l’infrastructure grâce au code.",
+        q3: "Ansible est un outil de configuration management.",
+        q4: "Terraform a été développé par HashiCorp.",
+        q5: "Terraform utilise principalement HCL.",
+        q6: "Le provider permet d’interagir avec l’API d’un fournisseur.",
+        q7: "terraform init initialise le répertoire de travail.",
+        q8: "terraform plan permet de visualiser les changements avant application.",
+        q9: "Terraform crée l’infrastructure, Ansible configure les machines.",
+        q10: "terraform destroy supprime les ressources créées."
+      };
+
+      let score = 0;
+      let correctionHTML = '<h2>Correction</h2>';
+
+      for (let q in bonnesReponses) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === bonnesReponses[q]) {
+          score++;
+          correctionHTML += `<p class="good">${q.toUpperCase()} : Correct. ${explications[q]}</p>`;
+        } else {
+          correctionHTML += `<p class="bad">${q.toUpperCase()} : Incorrect. ${explications[q]}</p>`;
+        }
+      }
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<h2>Résultat</h2><p>Score : <strong>${score}/10</strong></p>`;
+
+      const correctionDiv = document.getElementById('correction');
+      correctionDiv.style.display = 'block';
+      correctionDiv.innerHTML = correctionHTML;
+    }
+  </script>
+</body>
+</html>

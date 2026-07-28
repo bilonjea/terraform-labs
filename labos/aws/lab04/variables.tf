@@ -5,6 +5,7 @@ variable "region" {
 variable "ma_variable" {
   description = "Une variable d'exemple"
   type        = string
+
 }
 
 variable "instance_type_default" {

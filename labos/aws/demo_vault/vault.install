@@ -1,0 +1,21 @@
+-- Pré-requis avoir docker d'installer pour lancer les commande docker
+
+
+-- Étape 1 : lancer Vault en local avec docker
+
+docker run --cap-add=IPC_LOCK -d \
+  --name=dev-vault \
+  -p 8200:8200 \
+  -e VAULT_DEV_ROOT_TOKEN_ID=myroot \
+  hashicorp/vault
+
+Étape 2 : définir l’accès Vault
+export VAULT_ADDR='http://127.0.0.1:8200'
+export VAULT_TOKEN='myroot'
+
+
+Étape 3 : stocker les secrets 
+vault kv put secret/aws \
+  AWS_ACCESS_KEY_ID="AKI..." \
+  AWS_SECRET_ACCESS_KEY="uwL..." \
+  AWS_DEFAULT_REGION="eu-west-1"

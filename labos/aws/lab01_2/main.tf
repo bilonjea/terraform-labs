@@ -60,5 +60,16 @@ resource "aws_security_group_rule" "allow_ssh" {
   security_group_id = "sg-0b90f6eeaf1466947"
 }
 
+output "nginx_ip_public" {
+  value = aws_instance.nginx.public_ip
+  
+}
+
+
+
+output "web_ip_public" {
+  value = aws_instance.web.public_ip
+
+}
 
 

@@ -78,3 +78,17 @@ module "compute_prod" {
   subnet_id          = data.aws_subnets.default.ids[0]
   security_group_ids = [aws_security_group.common.id]
 }
+
+
+# ──────────────────────────────
+# PROD — t3.small, 30 Go
+# ──────────────────────────────
+module "compute_internal" {
+  source = "./modules/compute"
+
+  env                = "internal"
+  instance_type      = "t3.small"
+  ami_id             = data.aws_ami.ubuntu.id
+  subnet_id          = data.aws_subnets.default.ids[0]
+  security_group_ids = [aws_security_group.common.id]
+}

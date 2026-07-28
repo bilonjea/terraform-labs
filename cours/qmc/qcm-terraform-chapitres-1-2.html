@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCM Terraform - Chapitres 1 et 2</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:24px; color:#1f2937; }
+    .container { max-width: 960px; margin: auto; background:white; padding:32px; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+    h1 { color:#0f766e; margin-bottom:8px; }
+    h2 { margin-top:32px; color:#111827; }
+    p { line-height:1.5; }
+    .question { margin:24px 0; padding:20px; background:#f9fafb; border-radius:12px; border:1px solid #e5e7eb; }
+    .question h3 { margin-top:0; font-size:18px; }
+    label { display:block; margin:10px 0; padding:10px 12px; border-radius:8px; cursor:pointer; }
+    label:hover { background:#eef6f6; }
+    button { background:#0f766e; color:white; border:none; padding:14px 20px; border-radius:10px; font-size:16px; cursor:pointer; }
+    button:hover { background:#115e59; }
+    .result { margin-top:28px; padding:18px; border-radius:12px; background:#ecfeff; border:1px solid #a5f3fc; display:none; }
+    .correction { margin-top:20px; display:none; }
+    .good { color:#166534; font-weight:bold; }
+    .bad { color:#b91c1c; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QCM Terraform</h1>
+    <p><strong>Support :</strong> Chapitre 1 : Infrastructure as Code, Chapitre 2 : Terraform</p>
+    <p>Répondez aux 10 questions puis cliquez sur <strong>Corriger</strong>.</p>
+
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. Quel est le principal objectif de l’Infrastructure as Code ?</h3>
+        <label><input type="radio" name="q1" value="a"> Automatiser la gestion de l’infrastructure avec du code</label>
+        <label><input type="radio" name="q1" value="b"> Installer uniquement des applications métiers</label>
+        <label><input type="radio" name="q1" value="c"> Remplacer les plateformes cloud</label>
+      </div>
+
+      <div class="question">
+        <h3>2. Lequel de ces éléments fait partie des défis de l’IaC présentés dans le cours ?</h3>
+        <label><input type="radio" name="q2" value="a"> Il n’y a plus besoin de suivre les modifications</label>
+        <label><input type="radio" name="q2" value="b"> Il faut pouvoir comprendre l’impact d’un changement</label>
+        <label><input type="radio" name="q2" value="c"> Le cloud devient inutile</label>
+      </div>
+
+      <div class="question">
+        <h3>3. Selon le support, Terraform a été créé pour :</h3>
+        <label><input type="radio" name="q3" value="a"> Résoudre les défis liés à l’Infrastructure as Code</label>
+        <label><input type="radio" name="q3" value="b"> Remplacer Ansible dans tous les cas</label>
+        <label><input type="radio" name="q3" value="c"> Gérer uniquement des bases de données</label>
+      </div>
+
+      <div class="question">
+        <h3>4. Qu’est-ce que Terraform ?</h3>
+        <label><input type="radio" name="q4" value="a"> Un antivirus pour serveurs Linux</label>
+        <label><input type="radio" name="q4" value="b"> Un outil open source développé par HashiCorp pour définir et provisionner l’infrastructure</label>
+        <label><input type="radio" name="q4" value="c"> Un langage de programmation orienté objet</label>
+      </div>
+
+      <div class="question">
+        <h3>5. Quel est l’un des avantages de Terraform mis en avant dans le chapitre 2 ?</h3>
+        <label><input type="radio" name="q5" value="a"> Il fonctionne uniquement avec AWS</label>
+        <label><input type="radio" name="q5" value="b"> Il prend en charge plusieurs fournisseurs cloud</label>
+        <label><input type="radio" name="q5" value="c"> Il impose un serveur central obligatoire</label>
+      </div>
+
+      <div class="question">
+        <h3>6. Dans Terraform, à quoi sert un provider ?</h3>
+        <label><input type="radio" name="q6" value="a"> À interagir avec l’API d’un fournisseur de ressources</label>
+        <label><input type="radio" name="q6" value="b"> À afficher uniquement les outputs</label>
+        <label><input type="radio" name="q6" value="c"> À remplacer les variables</label>
+      </div>
+
+      <div class="question">
+        <h3>7. À quoi correspond une resource dans Terraform ?</h3>
+        <label><input type="radio" name="q7" value="a"> À une commande shell exécutée après le déploiement</label>
+        <label><input type="radio" name="q7" value="b"> À un objet d’infrastructure comme une instance ou un réseau</label>
+        <label><input type="radio" name="q7" value="c"> À un rapport PDF généré par Terraform</label>
+      </div>
+
+      <div class="question">
+        <h3>8. Quelle commande permet d’initialiser le répertoire de travail Terraform ?</h3>
+        <label><input type="radio" name="q8" value="a"> terraform init</label>
+        <label><input type="radio" name="q8" value="b"> terraform plan</label>
+        <label><input type="radio" name="q8" value="c"> terraform destroy</label>
+      </div>
+
+      <div class="question">
+        <h3>9. Quelle étape permet de voir ce qui va être créé, modifié ou supprimé avant exécution ?</h3>
+        <label><input type="radio" name="q9" value="a"> Apply</label>
+        <label><input type="radio" name="q9" value="b"> Plan</label>
+        <label><input type="radio" name="q9" value="c"> Output</label>
+      </div>
+
+      <div class="question">
+        <h3>10. Dans la complémentarité IaC et Configuration Management, quel énoncé est correct ?</h3>
+        <label><input type="radio" name="q10" value="a"> Terraform crée l’infrastructure et Ansible installe/configure les applications</label>
+        <label><input type="radio" name="q10" value="b"> Ansible crée les machines et Terraform installe Apache</label>
+        <label><input type="radio" name="q10" value="c"> Les deux outils ont exactement le même rôle</label>
+      </div>
+
+      <button type="button" onclick="corrigerQuiz()">Corriger</button>
+    </form>
+
+    <div class="result" id="result"></div>
+    <div class="correction" id="correction"></div>
+  </div>
+
+  <script>
+    function corrigerQuiz() {
+      const bonnesReponses = {
+        q1: 'a', q2: 'b', q3: 'a', q4: 'b', q5: 'b',
+        q6: 'a', q7: 'b', q8: 'a', q9: 'b', q10: 'a'
+      };
+
+      const explications = {
+        q1: "L’IaC consiste à automatiser la gestion de l’infrastructure en utilisant du code.",
+        q2: "Le support précise qu’un défi de l’IaC est de connaître l’impact d’un changement.",
+        q3: "Le cours indique que Terraform a été créé pour répondre aux défis de l’Infrastructure as Code.",
+        q4: "Terraform est un outil open source développé par HashiCorp pour définir et provisionner l’infrastructure.",
+        q5: "Terraform supporte plusieurs fournisseurs comme AWS, Azure, GCP et DigitalOcean.",
+        q6: "Un provider est un plugin qui permet d’interagir avec l’API d’un fournisseur.",
+        q7: "Une resource représente un objet d’infrastructure, par exemple une instance ou un réseau virtuel.",
+        q8: "terraform init initialise le répertoire de travail et prépare les fichiers nécessaires.",
+        q9: "terraform plan permet de voir les changements avant de les appliquer.",
+        q10: "Dans le support, Terraform crée l’infrastructure et Ansible sert à installer/configurer les applications."
+      };
+
+      let score = 0;
+      let correctionHTML = '<h2>Correction</h2>';
+
+      for (let q in bonnesReponses) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === bonnesReponses[q]) {
+          score++;
+          correctionHTML += `<p class="good">${q.toUpperCase()} : Correct. ${explications[q]}</p>`;
+        } else {
+          correctionHTML += `<p class="bad">${q.toUpperCase()} : Incorrect. ${explications[q]}</p>`;
+        }
+      }
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<h2>Résultat</h2><p>Score : <strong>${score}/10</strong></p>`;
+
+      const correctionDiv = document.getElementById('correction');
+      correctionDiv.style.display = 'block';
+      correctionDiv.innerHTML = correctionHTML;
+    }
+  </script>
+</body>
+</html>

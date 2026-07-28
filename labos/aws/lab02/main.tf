@@ -84,6 +84,11 @@ resource "aws_instance" "web" {
   instance_type          = "t3.micro"
   subnet_id              = aws_subnet.formation.id
   vpc_security_group_ids = [aws_security_group.formation.id]
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.web.public_ip} > public_ip.txt"
+
+  }
   tags = {
     Name          = "Ubuntu Server 24.04 LTS"
     Environnement = "formation"
