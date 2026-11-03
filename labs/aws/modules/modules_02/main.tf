@@ -39,6 +39,6 @@ module "prod" {
   instance_type  = "t3.micro"
   volume_size    = 30
   ami_id         = data.aws_ami.ubuntu.id
-  allow_ssh_cidr = "MON_IP/32"
+  allow_ssh_cidr = "10.2.0.0/16"
   open_ports     = [80, 443, 8080]
 }

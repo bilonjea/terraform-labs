@@ -1,0 +1,5 @@
+- Le provider OpenStack joue le rôle d’interface entre Terraform et les API OpenStack.
+- Les ressources Terraform représentent des objets OpenStack : réseau Neutron, sous-réseau Neutron, instance Nova.-
+- La référence network_id crée une dépendance implicite entre le réseau et le sous-réseau.
+- La référence de l’ID du réseau dans le bloc network de la VM crée une autre dépendance implicite.
+- Le State conserve les identifiants des ressources créées et permet à Terraform de suivre leur cycle de vie.
