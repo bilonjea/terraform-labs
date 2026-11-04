@@ -12,7 +12,7 @@ output "region" {
 
 output "backend_config_snippet" {
   description = "Bloc backend prêt à copier dans ton projet"
-  value = <<-SNIPPET
+  value       = <<-SNIPPET
     backend "s3" {
       bucket         = "${aws_s3_bucket.tfstate.bucket}"
       key            = "<env>/terraform.tfstate"

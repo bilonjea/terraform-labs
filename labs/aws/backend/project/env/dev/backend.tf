@@ -9,20 +9,9 @@ terraform {
 
   backend "s3" {
     bucket         = "formation-tfv-tfstate-2026"
-    key            = "dev/terraform.tfstate"     # ← clé unique DEV
+    key            = "dev/terraform.tfstate" # ← clé unique DEV
     region         = "eu-west-3"
     encrypt        = true
-    dynamodb_table = "formation-tfv-tfstate-lock"
-  }
-}
-
-provider "aws" {
-  region = var.aws_region
-  default_tags {
-    tags = {
-      Environment = "dev"
-      Cours       = "TFV"
-      ManagedBy   = "Terraform"
-    }
+    use_lockfile   = true
   }
 }

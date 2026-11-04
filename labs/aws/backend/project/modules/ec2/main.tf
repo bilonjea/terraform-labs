@@ -56,7 +56,8 @@ resource "aws_instance" "this" {
     AMI  = var.ami_id
   })
 
-  lifecycle {
-    ignore_changes = [ami]
-  }
+  # TODO : use only if needed no change of ec2 when ami is updated
+  #lifecycle {
+  #  ignore_changes = [ami]
+  #}
 }

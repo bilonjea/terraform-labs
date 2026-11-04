@@ -3,13 +3,6 @@ variable "aws_region" {
   default = "eu-west-3"
 }
 
-# AMI Amazon Linux 2023 kernel-6.1 — ton screenshot
-variable "al2023_ami_id" {
-  description = "Amazon Linux 2023 kernel-6.1"
-  type        = string
-  default     = "ami-0236922087fa98b6e"
-}
-
 variable "instance_type" {
   type    = string
   default = "t3.micro"

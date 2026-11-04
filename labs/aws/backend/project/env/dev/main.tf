@@ -18,7 +18,7 @@ module "web_dev" {
 
   name            = "web"
   env             = "dev"
-  ami_id          = var.ubuntu_ami_id
+  ami_id          = data.aws_ami.ubuntu.id
   instance_type   = var.instance_type
   vpc_id          = data.aws_vpc.default.id
   subnet_id       = tolist(data.aws_subnets.default.ids)[0]
